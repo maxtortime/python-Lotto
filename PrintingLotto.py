@@ -138,9 +138,7 @@ def main():
 		printPeriod(15)
 
 	print "NOW DRAWING!!"
-	#result = printDrawing(0,drawing())
-	#checking(player,result)
-	result = drawing()
+	result = printDrawing(0,drawing())
 	checking(player,result)
 
 	print "Your numbers: ",sorted(player)
