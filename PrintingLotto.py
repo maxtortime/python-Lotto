@@ -4,7 +4,6 @@ import time,sched
 import sys
 from Error import *
 
-
 def making_list(length=45): # to make integer list
 	lst = []
 
@@ -44,7 +43,7 @@ def manual_select():
 			
 		result = selection
 	except ValueError:
-		print("YOUR INPUT IS SOME WRONG")
+		print "YOUR INPUT IS SOME WRONG"
 		result = manual_select()
 	except NotSixError:
 		result = manual_select()
@@ -53,6 +52,7 @@ def manual_select():
 	except OverRangeError:
 		result = manual_select()
 
+	print "Your numbers:",result
 	return result
 
 def drawing():
