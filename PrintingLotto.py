@@ -117,23 +117,35 @@ def checking(player,result):
 
 def main():
 	print "Welcome to FOXLotto"
-	
-	mode = raw_input("Do you want automatic select? (y or n) ")
+	player = []
 
-	if mode.upper() == "Y":
-		player = auto_select()
-	elif mode.upper() == "N":
-		player = manual_select()
-	else:
-		print "You inputed wrong and just do auto_selection"
-		printPeriod(15)
+	try:
+		size = input("How many lotto want you buy?... ")
+	except:
+		print "You inputed string or not declared variables."
+		print "Buy lotto one paper automatically..."
+		size = 1
+
+	while size > 0:
+		mode = raw_input("Do you want automatic select? (y or n) ")
+
+		if mode.upper() == "Y":
+			player.append(auto_select())
+		elif mode.upper() == "N":
+			player.append(manual_select())
+		else:
+			print "You inputed wrong and just do auto_selection"
+			printPeriod(15)
+
+		size-=1
 
 	result = drawing()
 	printDrawing(result)
-	checking(player,result)
 
-	print "Your numbers:",sorted(player)
-	print "Result:",sorted(result)
+	for numbers in player:
+		checking(numbers,result)
+		print "Your numbers:",sorted(numbers)
+		print "Result:",sorted(result)
 
 if __name__ == "__main__":
 	main()
