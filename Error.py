@@ -1,5 +1,7 @@
-class Error(Exception):
+class Error(Exception)):
     pass
+
+# ddd
 
 class NotSixError(Error):
     def __init__(self):
