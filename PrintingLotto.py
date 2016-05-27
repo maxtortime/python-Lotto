@@ -4,8 +4,8 @@ import time,sched
 import sys
 from Error import *
 
-
-def making_list(length=45): # to make integer list
+# 정수 리스트를 만드는 함수
+def making_list(length=45):
 	lst = []
 
 	for num in range(1,length+1):
@@ -13,7 +13,7 @@ def making_list(length=45): # to make integer list
 
 	return lst
 
-def auto_select(): # to choose automatic numbers
+def auto_select():
 	numbers = random.sample(making_list(45),6)
 	print "Your numbers:",sorted(numbers)
 	return numbers
@@ -21,8 +21,8 @@ def auto_select(): # to choose automatic numbers
 def isUnique(lst): # to check unique list
 	s1 = set(lst)
 
-	if len(s1) < len(lst): 
-	# if list has distinct number, 
+	if len(s1) < len(lst):
+	# if list has distinct number,
 	# length of it's set will be reduced.
 		return False
 	else:
@@ -30,7 +30,7 @@ def isUnique(lst): # to check unique list
 
 def manual_select():
 	try:
-		numbers = raw_input("Please input your lucky six numbers ")	
+		numbers = raw_input("Please input your lucky six numbers ")
 		selection = [int(num) for num in numbers.split(' ')]
 
 		for n in selection:
@@ -41,7 +41,7 @@ def manual_select():
 			raise NotSixError()
 		elif not isUnique(selection):
 			raise DistinctError()
-			
+
 		result = selection
 	except ValueError:
 		print("YOUR INPUT IS SOME WRONG")
@@ -64,7 +64,7 @@ def drawing():
 	printPeriod(5)
 
 	for i in range (0,7):
-		ball = random.choice(lst) 
+		ball = random.choice(lst)
 		result.append(ball)
 		lst.remove(ball) # to remove distinct drawing result
 
@@ -87,7 +87,7 @@ def printDrawing(lst,i=0):
 	else:
 		if i==len(lst)-1:
 			print "BOUNUS NUMBER is {0}".format(lst[i])
-		else:	
+		else:
 			print "NUMBER {0} is {1}".format(i+1,lst[i])
 			s.enter(1,0,printPeriod,())
 			s.run()
@@ -117,7 +117,7 @@ def checking(player,result):
 
 def main():
 	print "Welcome to FOXLotto"
-	
+
 	mode = raw_input("Do you want automatic select? (y or n) ")
 
 	if mode.upper() == "Y":
